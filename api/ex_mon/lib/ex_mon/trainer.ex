@@ -7,6 +7,8 @@ defmodule ExMon.Trainer do
 
   import Ecto.Changeset
 
+  alias ExMon.Trainer.Pokemon
+
   @primary_key {:id, Ecto.UUID, autogenerate: true}
   @required_params [:name, :password]
 
@@ -14,6 +16,7 @@ defmodule ExMon.Trainer do
     field :name, :string
     field :password_hash, :string
     field :password, :string, virtual: true
+    has_many(:pokemon, Pokemon)
 
     timestamps()
   end

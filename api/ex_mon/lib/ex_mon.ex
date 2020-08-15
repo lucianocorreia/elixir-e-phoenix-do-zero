@@ -7,10 +7,13 @@ defmodule ExMon do
   if it comes from the database, an external API or others.
   """
 
-  alias ExMon.Trainer
+  alias ExMon.{Pokemon, Trainer}
 
   defdelegate create_trainer(params), to: Trainer.Create, as: :call
   defdelegate delete_trainer(params), to: Trainer.Delete, as: :call
   defdelegate get_trainer(params), to: Trainer.Get, as: :call
   defdelegate update_trainer(params), to: Trainer.Update, as: :call
+
+  defdelegate get_pokemon(params), to: Pokemon.Get, as: :call
+  defdelegate create_trainer_pokemon(params), to: Trainer.Pokemon.Create, as: :call
 end
